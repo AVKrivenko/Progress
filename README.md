@@ -20,5 +20,5 @@
 ## Установка
 1. Склонируйте репозиторий:
    ```bash
-   git clone https://github.com/ваш-username/progress-bar.git
+   git clone https://github.com/ваш-username/Progress.git
 2.  Откройте файл index.html в браузере.
