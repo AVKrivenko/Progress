@@ -1,0 +1,161 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.progress-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    transform: rotate(-90deg); 
+}
+.progress-bar.animated {
+    animation: rotate 2s linear infinite;
+} 
+
+.progress-bar-bg {
+    fill: none;
+    stroke: #e0e0e0; /* Цвет фонового круга */
+    stroke-width: 10;
+}
+
+.progress-bar-fill {
+    fill: none;
+    stroke: blue; /* Цвет заполнения */
+    stroke-width: 10;
+    stroke-dasharray: 565.48; /* Длина окружности (2 * π * r) */
+    stroke-dashoffset: 565.48; /* Начальное значение (полностью скрыто) */
+    
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+@keyframes fillProgress {
+    from {
+        stroke-dashoffset: 565.48;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.progress-bar-fill.animated {
+    animation: fillProgress 2s linear infinite;
+}
+
+/* Скрытие прогресс-бара */
+.progress-bar-fill.hidden {
+    display: none;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.controls label {
+    margin: 5px 0;
+}
+
+.valueInp{
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+   
+}
+.value{
+    
+    border-radius: 10px;
+    border-color: blue ;
+    width: 35px;
+    height: 15px;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+input:checked + .slider {
+    background-color: blue;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+@media (orientation: landscape) {
+    .container {
+        flex-direction: row;
+    }
+
+    .progress-container {
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    .controls {
+        align-items: flex-start;
+    }
+}
+
