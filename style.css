@@ -17,6 +17,7 @@ body {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
 }
 
 .progress-container {
@@ -72,7 +73,7 @@ body {
 }
 
 /* Скрытие прогресс-бара */
-.progress-bar-fill.hidden {
+.progress-container.hidden {
     display: none;
 }
 
@@ -100,6 +101,9 @@ body {
     height: 15px;
     margin-right: 10px;
     margin-left: 5px;
+}
+.value:invalid {
+    border-color: red; /* Подсветка красным, если значение недопустимо */
 }
 .toggle-switch {
     display: flex;
